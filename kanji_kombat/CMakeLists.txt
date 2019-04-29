@@ -3,7 +3,7 @@ project(kanji_kombat)
 
 set(CMAKE_CXX_STANDARD 14)
 
-set(SOURCE_FILES ./source/main.cpp)
+set(SOURCE_FILES ./source/main.cpp source/Game.cpp source/Game.h source/stdafx.cpp source/stdafx.h source/SplashScreen.h source/SplashScreen.cpp source/MainMenu.cpp source/MainMenu.h)
 
 add_executable(kanji_kombat ${SOURCE_FILES})
 
