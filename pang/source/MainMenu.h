@@ -2,8 +2,8 @@
 // Created by Alessandro Lira on 2019-04-20.
 //
 
-#ifndef KANJI_KOMBAT_MAINMENU_H
-#define KANJI_KOMBAT_MAINMENU_H
+#ifndef PANG_MAINMENU_H
+#define PANG_MAINMENU_H
 
 #include "stdafx.h"
 
@@ -27,4 +27,4 @@ private:
     std::vector<MenuItem> _menuItems;
 };
 
-#endif //KANJI_KOMBAT_MAINMENU_H
+#endif //PANG_MAINMENU_H

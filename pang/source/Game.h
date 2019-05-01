@@ -2,8 +2,8 @@
 // Created by Alessandro Lira on 2019-04-19.
 //
 
-#ifndef KANJI_KOMBAT_GAME_H
-#define KANJI_KOMBAT_GAME_H
+#ifndef PANG_GAME_H
+#define PANG_GAME_H
 
 #include "stdafx.h"
 
@@ -25,4 +25,4 @@ private:
     static sf::RenderWindow _mainWindow;
 };
 
-#endif //KANJI_KOMBAT_GAME_H
+#endif //PANG_GAME_H

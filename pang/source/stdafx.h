@@ -2,8 +2,8 @@
 // Created by Alessandro Lira on 2019-04-20.
 //
 
-#ifndef KANJI_KOMBAT_STDAFX_H
-#define KANJI_KOMBAT_STDAFX_H
+#ifndef PANG_STDAFX_H
+#define PANG_STDAFX_H
 
 #include <stdio.h>
 
@@ -22,4 +22,4 @@
 #include "MainMenu.h"
 #include "SplashScreen.h"
 
-#endif //KANJI_KOMBAT_STDAFX_H
+#endif //PANG_STDAFX_H
