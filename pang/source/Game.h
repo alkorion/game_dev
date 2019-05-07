@@ -10,14 +10,14 @@
 class Game {
 
 public:
-    static void Start();
+    static void start();
 
 private:
-    static bool IsExiting();
-    static void GameLoop();
+    static bool isExiting();
+    static void gameLoop();
 
-    static void ShowSplashScreen();
-    static void ShowMainMenu();
+    static void showSplashScreen();
+    static void showMainMenu();
 
     enum GameState { Uninitialized, ShowingSplashScreen, Paused, ShowingMenu, Playing, Exiting};
 

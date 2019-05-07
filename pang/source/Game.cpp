@@ -5,7 +5,7 @@
 #include "stdafx.h"
 #include "Game.h"
 
-void Game::Start(void)
+void Game::start(void)
 {
     if(_gameState != Uninitialized) {
         return;
@@ -14,14 +14,14 @@ void Game::Start(void)
     _mainWindow.create(sf::VideoMode(1024,768,32),"Kanji Kombat");
     _gameState = Game::ShowingSplashScreen;
 
-    while(!IsExiting()) {
-        GameLoop();
+    while(!isExiting()) {
+        gameLoop();
     }
 
     _mainWindow.close();
 }
 
-bool Game::IsExiting()
+bool Game::isExiting()
 {
     if(_gameState == Game::Exiting)
         return true;
@@ -29,7 +29,7 @@ bool Game::IsExiting()
         return false;
 }
 
-void Game::GameLoop()
+void Game::gameLoop()
 {
     sf::Event currentEvent;
     while(_mainWindow.pollEvent(currentEvent))
@@ -39,12 +39,12 @@ void Game::GameLoop()
         {
             case Game::ShowingMenu:
             {
-                ShowMainMenu();
+                showMainMenu();
                 break;
             }
             case Game::ShowingSplashScreen:
             {
-                ShowSplashScreen();
+                showSplashScreen();
                 break;
             }
             case Game::Playing:
@@ -62,13 +62,13 @@ void Game::GameLoop()
     }
 }
 
-void Game::ShowSplashScreen() {
+void Game::showSplashScreen() {
     SplashScreen splashScreen;
     splashScreen.show(_mainWindow);
     _gameState = Game::ShowingMenu;
 }
 
-void Game::ShowMainMenu() {
+void Game::showMainMenu() {
     MainMenu mainMenu;
     MainMenu::MenuResult result = mainMenu.show(_mainWindow);
     switch(result)

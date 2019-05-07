@@ -6,7 +6,7 @@
 #include "MainMenu.h"
 
 MainMenu::MenuResult MainMenu::show(sf::RenderWindow &window) {
-    // Load menu background from image file
+    // load menu background from image file
     sf::Texture menu_texture;
     menu_texture.loadFromFile("resources/main_menu.png");
     sf::Sprite menu_sprite(menu_texture);
