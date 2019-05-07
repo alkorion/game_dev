@@ -21,5 +21,6 @@
 #include "Game.h"
 #include "MainMenu.h"
 #include "SplashScreen.h"
+#include "VisibleGameObject.h"
 
 #endif //PANG_STDAFX_H
