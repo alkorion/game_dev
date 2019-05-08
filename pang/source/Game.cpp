@@ -11,7 +11,7 @@ void Game::start(void)
         return;
     }
 
-    _mainWindow.create(sf::VideoMode(1024,768,32),"Kanji Kombat");
+    _mainWindow.create(sf::VideoMode(1024,768,32),"Pang!");
     _gameState = Game::ShowingSplashScreen;
 
     while(!isExiting()) {
