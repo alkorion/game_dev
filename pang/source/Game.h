@@ -6,6 +6,7 @@
 #define PANG_GAME_H
 
 #include "stdafx.h"
+#include "PlayerPaddle.h"
 
 class Game {
 
@@ -23,6 +24,8 @@ private:
 
     static GameState _gameState;
     static sf::RenderWindow _mainWindow;
+
+    static PlayerPaddle _player1;
 };
 
 #endif //PANG_GAME_H

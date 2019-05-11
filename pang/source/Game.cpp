@@ -12,6 +12,10 @@ void Game::start(void)
     }
 
     _mainWindow.create(sf::VideoMode(1024,768,32),"Pang!");
+
+    _player1.load("resources/paddle.png");
+    _player1.setPosition((1024/2)-45,700); // roughly in the bottom-middle of game area
+
     _gameState = Game::ShowingSplashScreen;
 
     while(!isExiting()) {
@@ -50,12 +54,15 @@ void Game::gameLoop()
             case Game::Playing:
             {
                 _mainWindow.clear(sf::Color(0,0,0));
+                _player1.draw(_mainWindow);
                 _mainWindow.display();
 
-                if(currentEvent.type == sf::Event::Closed)
-                {
-                    _gameState = Game::Exiting;
+                if(currentEvent.type == sf::Event::Closed) { _gameState = Game::Exiting; }
+
+                if(currentEvent.type == sf::Event::KeyPressed) {
+                    if(currentEvent.key.code == sf::Keyboard::Escape) { showMainMenu(); }
                 }
+
                 break;
             }
         }
@@ -85,5 +92,5 @@ void Game::showMainMenu() {
 // A quirk of C++, static member variables need to be instantiated outside of the class
 Game::GameState Game::_gameState = Uninitialized;
 sf::RenderWindow Game::_mainWindow;
-
+PlayerPaddle Game::_player1;
 
