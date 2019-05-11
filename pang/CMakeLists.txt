@@ -11,7 +11,7 @@ project(pang
 
 set(CMAKE_CXX_STANDARD 14)
 
-set(SOURCE_FILES ./source/main.cpp source/Game.cpp source/Game.h source/stdafx.cpp source/stdafx.h source/SplashScreen.h source/SplashScreen.cpp source/MainMenu.cpp source/MainMenu.h source/VisibleGameObject.cpp source/VisibleGameObject.h)
+set(SOURCE_FILES ./source/main.cpp source/Game.cpp source/Game.h source/stdafx.cpp source/stdafx.h source/SplashScreen.h source/SplashScreen.cpp source/MainMenu.cpp source/MainMenu.h source/VisibleGameObject.cpp source/VisibleGameObject.h source/PlayerPaddle.cpp source/PlayerPaddle.h)
 
 add_executable(pang ${SOURCE_FILES})
 
