@@ -3,7 +3,10 @@
 //
 
 #include "stdafx.h"
+
 #include "GameObjectManager.h"
+
+#include "Game.h"
 
 GameObjectManager::GameObjectManager() {}
 
@@ -49,6 +52,16 @@ void GameObjectManager::drawAll(sf::RenderWindow &renderWindow) {
     // while the game-object iterator is NOT pointing at the final NULL value, draw each object
     while(itr != _gameObjects.end()) {
         itr->second->draw(renderWindow);
+        itr++;
+    }
+}
+
+void GameObjectManager::updateAll() {
+    std::map<std::string, VisibleGameObject*>::const_iterator itr = _gameObjects.begin();
+    float timeDelta = Game::gameClock.restart().asSeconds(); // restart() returns sf::Time -> convert to float
+
+    while (itr != _gameObjects.end()) {
+        itr->second->update(timeDelta);
         itr++;
     }
 }

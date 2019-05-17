@@ -15,6 +15,16 @@ class PlayerPaddle: public VisibleGameObject {
 public:
     PlayerPaddle();
     ~PlayerPaddle();
+
+    void update(float elapsedTime);
+    void draw(sf::RenderWindow& renderwindow);
+
+    float getVelocity() const;
+
+private:
+    float _velocity; // -- left, ++ right
+    float _maxVelocity;
+
 };
 
 

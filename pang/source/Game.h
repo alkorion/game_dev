@@ -12,6 +12,11 @@ class Game {
 
 public:
     static void start();
+    static sf::RenderWindow& getWindow();
+    const static int SCREEN_WIDTH = 1024;
+    const static int SCREEN_HEIGHT = 768;
+
+    static sf::Clock gameClock;
 
 private:
     static bool isExiting();

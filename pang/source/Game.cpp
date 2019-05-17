@@ -9,6 +9,7 @@
 #include "MainMenu.h"
 #include "SplashScreen.h"
 #include "PlayerPaddle.h"
+#include "GameBall.h"
 
 
 void Game::start(void)
@@ -17,20 +18,22 @@ void Game::start(void)
         return;
     }
 
-    _mainWindow.create(sf::VideoMode(1024,768,32),"Pang!");
+    _mainWindow.create(sf::VideoMode(SCREEN_WIDTH,SCREEN_HEIGHT,32),"Pang!");
 
     PlayerPaddle *player1 = new PlayerPaddle();
-    PlayerPaddle *player2 = new PlayerPaddle();
-
     player1->load("resources/paddle.png");
-    player1->setPosition((1024/2)-45,700);
+    player1->setPosition((SCREEN_WIDTH/2)-45,700);
+
+    PlayerPaddle *player2 = new PlayerPaddle();
+    player2->load("resources/paddle.png");
+    player2->setPosition((SCREEN_WIDTH/2)-45,38);
+
+    GameBall *gameBall = new GameBall();
+    gameBall->setPosition((SCREEN_WIDTH/2),(SCREEN_HEIGHT/2));
 
     _gameObjectManager.add("Paddle1",player1);
-
-    player2->load("resources/paddle.png");
-    player2->setPosition((1024/2)-45,38);
-
     _gameObjectManager.add("Paddle2",player2);
+    _gameObjectManager.add("Ball",gameBall);
 
     _gameState = Game::ShowingSplashScreen;
 
@@ -71,6 +74,7 @@ void Game::gameLoop()
             {
                 _mainWindow.clear(sf::Color(0,0,0));
 
+                _gameObjectManager.updateAll();
                 _gameObjectManager.drawAll(_mainWindow);
 
                 _mainWindow.display();
@@ -107,8 +111,13 @@ void Game::showMainMenu() {
     }
 }
 
+sf::RenderWindow& Game::getWindow() {
+    return _mainWindow;
+}
+
 // A quirk of C++, static member variables need to be instantiated outside of the class
 Game::GameState Game::_gameState = Uninitialized;
+sf::Clock Game::gameClock;
 sf::RenderWindow Game::_mainWindow;
 GameObjectManager Game::_gameObjectManager;
 

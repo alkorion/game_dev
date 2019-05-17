@@ -15,11 +15,11 @@ public:
 
     void add(std::string name, VisibleGameObject* gameObject);
     void remove(std::string name);
-
     int getObjectCount() const;
     VisibleGameObject* get(std::string name) const;
 
     void drawAll(sf::RenderWindow& renderWindow);
+    void updateAll();
 
 private:
     // heart and soul of manager
