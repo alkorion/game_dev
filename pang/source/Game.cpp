@@ -3,7 +3,13 @@
 //
 
 #include "stdafx.h"
+
 #include "Game.h"
+
+#include "MainMenu.h"
+#include "SplashScreen.h"
+#include "PlayerPaddle.h"
+
 
 void Game::start(void)
 {

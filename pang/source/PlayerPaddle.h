@@ -6,6 +6,9 @@
 #define PANG_PLAYERPADDLE_H
 
 #include "stdafx.h"
+
+#include "PlayerPaddle.h"
+
 #include "VisibleGameObject.h"
 
 class PlayerPaddle: public VisibleGameObject {

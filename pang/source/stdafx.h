@@ -18,10 +18,4 @@
 #include <cassert>
 #include <list>
 
-#include "Game.h"
-#include "MainMenu.h"
-#include "SplashScreen.h"
-#include "VisibleGameObject.h"
-#include "PlayerPaddle.h"
-
 #endif //PANG_STDAFX_H
