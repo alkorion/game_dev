@@ -14,7 +14,7 @@ VisibleGameObject::~VisibleGameObject() {
 void VisibleGameObject::load(std::string filename) {
     if(_texture.loadFromFile(filename) == false) {
         _filename = "";
-        _isLoaded == false;
+        _isLoaded = false;
     }
     else {
         _filename = filename;
@@ -29,8 +29,26 @@ void VisibleGameObject::draw(sf::RenderWindow &renderWindow) {
     }
 }
 
+void VisibleGameObject::update(float elapsedTime) {
+}
+
 void VisibleGameObject::setPosition(float x, float y) {
     if(_isLoaded) {
         _sprite.setPosition(x,y);
     }
+}
+
+sf::Vector2f VisibleGameObject::getPosition() const {
+    if(_isLoaded) {
+        return _sprite.getPosition();
+    }
+    return sf::Vector2f();
+}
+
+sf::Sprite& VisibleGameObject::getSprite() {
+    return _sprite;
+}
+
+bool VisibleGameObject::isLoaded() const {
+    return _isLoaded;
 }
