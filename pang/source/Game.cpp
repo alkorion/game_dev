@@ -22,11 +22,11 @@ void Game::start(void)
 
     PlayerPaddle *player1 = new PlayerPaddle();
     player1->load("resources/paddle.png");
-    player1->setPosition((SCREEN_WIDTH/2)-45,700);
+    player1->setPosition((SCREEN_WIDTH/2),700);
 
     PlayerPaddle *player2 = new PlayerPaddle();
     player2->load("resources/paddle.png");
-    player2->setPosition((SCREEN_WIDTH/2)-45,38);
+    player2->setPosition((SCREEN_WIDTH/2),68);
 
     GameBall *gameBall = new GameBall();
     gameBall->setPosition((SCREEN_WIDTH/2),(SCREEN_HEIGHT/2));
@@ -55,40 +55,39 @@ bool Game::isExiting()
 void Game::gameLoop()
 {
     sf::Event currentEvent;
-    while(_mainWindow.pollEvent(currentEvent))
+    _mainWindow.pollEvent(currentEvent);
+
+    switch(_gameState)
     {
-
-        switch(_gameState)
+        case Game::ShowingMenu:
         {
-            case Game::ShowingMenu:
-            {
-                showMainMenu();
-                break;
+            showMainMenu();
+            break;
+        }
+        case Game::ShowingSplashScreen:
+        {
+            showSplashScreen();
+            break;
+        }
+        case Game::Playing:
+        {
+            _mainWindow.clear(sf::Color(0,0,0));
+
+            _gameObjectManager.updateAll();
+            _gameObjectManager.drawAll(_mainWindow);
+
+            _mainWindow.display();
+
+            if(currentEvent.type == sf::Event::Closed) { _gameState = Game::Exiting; }
+
+            if(currentEvent.type == sf::Event::KeyPressed) {
+                if(currentEvent.key.code == sf::Keyboard::Escape) { showMainMenu(); }
             }
-            case Game::ShowingSplashScreen:
-            {
-                showSplashScreen();
-                break;
-            }
-            case Game::Playing:
-            {
-                _mainWindow.clear(sf::Color(0,0,0));
 
-                _gameObjectManager.updateAll();
-                _gameObjectManager.drawAll(_mainWindow);
-
-                _mainWindow.display();
-
-                if(currentEvent.type == sf::Event::Closed) { _gameState = Game::Exiting; }
-
-                if(currentEvent.type == sf::Event::KeyPressed) {
-                    if(currentEvent.key.code == sf::Keyboard::Escape) { showMainMenu(); }
-                }
-
-                break;
-            }
+            break;
         }
     }
+
 }
 
 void Game::showSplashScreen() {
