@@ -15,7 +15,7 @@ _maxVelocity(600.0f)
     load("resources/paddle.png");
     assert(isLoaded());
 
-    getSprite().setOrigin(getSprite().getScale().x/2, getSprite().getScale().y/2);
+    getSprite().setOrigin(getSprite().getTexture()->getSize().x/2, getSprite().getTexture()->getSize().y/2);
 }
 
 PlayerPaddle::~PlayerPaddle() {}
@@ -49,8 +49,8 @@ void PlayerPaddle::update(float elapsedTime) {
 
     sf::Vector2f pos = this->getPosition();
 
-    if(pos.x < getSprite().getTextureRect().width/2 ||
-    pos.x > (Game::SCREEN_WIDTH - getSprite().getTextureRect().width/2)) {
+    if( (pos.x < getSprite().getTextureRect().width/2 && _velocity < 0) ||
+    (pos.x > Game::SCREEN_WIDTH - getSprite().getTextureRect().width/2 && _velocity > 0)) {
         _velocity = -_velocity; // bounce paddle elastically off wall in other direction
     }
 
