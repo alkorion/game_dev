@@ -18,6 +18,11 @@ public:
 
     virtual void setPosition(float x, float y);
     virtual sf::Vector2f getPosition() const;
+//    virtual float getHeight();
+//    virtual float getWidth();
+//
+//    virtual sf::Rect<float> getBoundingRect();
+
     virtual bool isLoaded() const;
 
 protected:

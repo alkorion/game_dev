@@ -47,6 +47,27 @@ sf::Vector2f VisibleGameObject::getPosition() const {
     return sf::Vector2f();
 }
 
+//float VisibleGameObject::getHeight() {
+//    return _sprite.getTexture()->getSize().y;
+//}
+//
+//float VisibleGameObject::getWidth() {
+//    return _sprite.getTexture()->getSize().x;
+//}
+//
+//sf::Rect<float> VisibleGameObject::getBoundingRect() {
+//    //sf::Vector2f size = _sprite.getTexture()->getSize().x;
+//    sf::Vector2f size = sf::Vector2f((float)_sprite.getTexture()->getSize().x,(float)_sprite.getTexture()->getSize().y);
+//    sf::Vector2f pos = _sprite.getPosition();
+//
+//    return sf::Rect<float>(
+//            pos.x - size.x/2,
+//            pos.y - size.y/2,
+//            pos.x + size.x/2,
+//            pos.y + size.y/2
+//            );
+//}
+
 sf::Sprite& VisibleGameObject::getSprite() {
     return _sprite;
 }
